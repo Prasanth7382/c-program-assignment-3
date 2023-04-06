@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+// Function to reverse the string using pointers
+void reverse_string(char *str) {
+    char *start = str;
+    char *end = str;
+    char temp;
+
+    // Move the end pointer to the end of the string
+    while (*end != '\0') {
+        end++;
+    }
+    end--;
+
+    // Swap characters at the start and end pointers
+    while (start < end) {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    char str[100];
+
+    printf("Enter any string: ");
+    scanf("%s", str);
+
+    // Call the function to reverse the string
+    reverse_string(str);
+
+    printf("The reverse of the string [%s] is: %s\n", str, str);
+
+    return 0;
+}
